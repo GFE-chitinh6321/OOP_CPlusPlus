@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1605000154 source:d:\document\code support\hai thuan\lesson_5_8\main.cpp
+	<iostream>
+	<string.h>
+	<iomanip>
+	<stdio.h>
+
