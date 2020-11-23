@@ -43,7 +43,7 @@ public:
 
 void TitleProject()
 {
-    cout << "|" << setw(15) << "Subject";
+    cout << setw(15) << "Subject";
     cout << setw(20) << "Amount credtis";
     cout << setw(15) << "Point" << endl;
 }
@@ -76,12 +76,12 @@ void ReportPoint::Output()
     cout << "--------------------------------------------------------------" << endl;
     TitleProject();
     for(int i=0; i<n; i++){
-        cout << "|" << setw(15) << x[i].subject;
+        cout << setw(15) << x[i].subject;
         cout << setw(20) << x[i].amountCredits;
         cout << setw(15) << x[i].point << endl;
     }
     cout << "--------------------------------------------------------------" << endl;
-    cout << "|" << right << setw(35) << "Medium Score" << setw(15) << MediumPoint(x, n) << endl;
+    cout << right << setw(35) << "Medium Score" << setw(15) << MediumPoint(x, n) << endl;
     cout << "--------------------------------------------------------------" << endl;
 }
 
