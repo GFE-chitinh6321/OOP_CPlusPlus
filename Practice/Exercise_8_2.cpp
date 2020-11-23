@@ -13,7 +13,7 @@ private:
     char code[30];
     char name[30];
     char room[30];
-    char faculty[30];
+    char course[30];
 public:
     friend class ReportPoint;
 
@@ -42,9 +42,9 @@ public:
 void ReportPoint::Input()
 {
     cout << "Enter student's code: ";         fflush(stdin);      gets(student.code);
-    cout << "Enter student's name: ";         fflush(stdin);      gets(student.code);
-    cout << "Enter student's class: ";         fflush(stdin);      gets(student.code);
-    cout << "Enter student's faculty: ";         fflush(stdin);      gets(student.code);
+    cout << "Enter student's name: ";         fflush(stdin);      gets(student.name);
+    cout << "Enter student's class: ";        fflush(stdin);      gets(student.room);
+    cout << "Enter student's course: ";         fflush(stdin);      gets(student.course);
 }
 
 int main()
