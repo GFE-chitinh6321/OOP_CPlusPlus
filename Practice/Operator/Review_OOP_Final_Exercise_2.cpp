@@ -108,7 +108,7 @@ Array Array::operator--()
 {
     for(int i=0; i<this->n; i++){
         for(int j=i; j<this->n; j++){
-            if(a[i] > a[j]){
+            if(a[i] < a[j]){
                 int temp = a[i];
                 a[i] = a[j];
                 a[j] = temp;
