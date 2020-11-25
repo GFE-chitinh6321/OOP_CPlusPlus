@@ -84,7 +84,6 @@ int GreatestCommonDivisor(int a, int b)
 Fraction Fraction::operator--()
 {
     int greatestCommonDivisor = GreatestCommonDivisor(this->numerator, this->denominator);
-
     this->numerator = this->numerator / greatestCommonDivisor;
     this->denominator = this->denominator / greatestCommonDivisor;
     return *this;
