@@ -57,11 +57,46 @@ void PhieuNhapSach::Nhap()
     }
 }
 
+void TieuDe()
+{
+    cout << setw(20) << "Ten sach";
+    cout << setw(20) << "Tac gia";
+    cout << setw(20) << "NXB";
+    cout << setw(20) << "So luong" << endl;
+
+}
+
+void PhieuNhapSach::Xuat()
+{
+    cout << "-----------------------------------------" << endl;
+    cout << setw(45) << "PHIEU NHAP SACH" << endl;
+    cout << setw(25) << "Ma phieu: " << phieu.maPhieu;
+    cout << setw(25) << "Ngay nhap: " << phieu.ngayNhap << endl;
+    cout << setw(25) << "So luong: " << phieu.soLuongSach << endl;
+    cout << "Chi tiet: " << endl;
+    TieuDe();
+    for(int i=0; i<n; i++){
+        cout << setw(20) << a[i].tenSach;
+        cout << setw(20) << a[i].tenTacGia;
+        cout << setw(20) << a[i].tenNXB;
+        cout << setw(20) << a[i].soLuong << endl;
+    }
+    cout << "-----------------------------------------" << endl;
+}
+
+void NhapNhieuPhieu(PhieuNhapSach *x, int n)
+{
+    for(int i=0; i<n; i++){
+
+    }
+}
 
 
 int main()
 {
-
+    PhieuNhapSach a;
+    a.Nhap();
+    a.Xuat();
 
 
 }
