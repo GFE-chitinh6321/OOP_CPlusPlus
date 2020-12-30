@@ -5,6 +5,8 @@
 //#include <bits/stdc++.h>
 using namespace std;
 
+class PhieuNhapSach;
+
 class Phieu
 {
 private:
@@ -13,6 +15,7 @@ private:
     int soLuongSach;
 public:
     friend class PhieuNhapSach;
+    friend void XuatThongTinSachNhapNhieuNhat(PhieuNhapSach *x, int p);
 
 };
 
@@ -25,7 +28,8 @@ private:
     int soLuong;
 public:
     friend class PhieuNhapSach;
-
+    friend int SoLuongSachMaxTrenPhieu(PhieuNhapSach p);
+    friend void XuatThongTinSachNhapNhieuNhat(PhieuNhapSach *x, int p);
 
 };
 
@@ -38,11 +42,13 @@ private:
 public:
     void Nhap();
     void Xuat();
+    friend int SoLuongSachMaxTrenPhieu(PhieuNhapSach p);
+    friend void XuatThongTinSachNhapNhieuNhat(PhieuNhapSach *x, int p);
 };
 
 void PhieuNhapSach::Nhap()
 {
-    cout << "Nhap thong tin phieu: " << endl;
+//    cout << "Nhap thong tin phieu: " << endl;
     cout << "\tMa phieu: ";                 fflush(stdin);      gets(phieu.maPhieu);
     cout << "\tNgay nhap: ";                fflush(stdin);      gets(phieu.ngayNhap);
     cout << "\tSo luong sach: ";            cin >> phieu.soLuongSach;
@@ -84,19 +90,60 @@ void PhieuNhapSach::Xuat()
     cout << "-----------------------------------------" << endl;
 }
 
-void NhapNhieuPhieu(PhieuNhapSach *x, int n)
+void NhapNhieuPhieu(PhieuNhapSach *x, int p)
 {
-    for(int i=0; i<n; i++){
-
+    for(int i=0; i<p; i++){
+        cout << "Nhap thong tin phieu " << i+1 << ": " << endl;
+        x[i].Nhap();
     }
 }
 
+void XuatNhieuPhieu(PhieuNhapSach *x, int p)
+{
+    for(int i=0; i<p; i++){
+        cout << "PHIEU " << i+1 << ": " << endl;
+        x[i].Xuat();
+    }
+
+}
+
+int SoLuongSachMaxTrenPhieu(PhieuNhapSach p)
+{
+    int max = 0;
+    for(int i=0; i<p.n; i++){
+        if(max < p.a[i].soLuong)
+            max = p.a[i].soLuong;
+    }
+    return max;
+}
+
+void XuatThongTinSachNhapNhieuNhat(PhieuNhapSach *x, int p)
+{
+    cout << "THONG TIN SACH CO SO LUONG NHIEU NHAT MOI PHIEU" << endl;
+    cout << setw(20) << "Ma phieu";
+    TieuDe();
+    for(int i=0; i<p; i++){
+        for(int j=0; j<x[i].n; j++){
+            if(x[i].a[j].soLuong == SoLuongSachMaxTrenPhieu(x[i]))
+            {
+                cout << setw(20) << x[i].phieu.maPhieu;
+                cout << setw(20) << x[i].a[j].tenSach;
+                cout << setw(20) << x[i].a[j].tenTacGia;
+                cout << setw(20) << x[i].a[j].tenNXB;
+                cout << setw(20) << x[i].a[j].soLuong << endl;
+            }
+        }
+    }
+}
 
 int main()
 {
-    PhieuNhapSach a;
-    a.Nhap();
-    a.Xuat();
-
-
+    PhieuNhapSach *x;
+    int p;
+    cout << "Nhap so luong phieu: ";        cin >> p;
+    x = new PhieuNhapSach[p];
+    NhapNhieuPhieu(x, p);
+    XuatNhieuPhieu(x, p);
+    XuatThongTinSachNhapNhieuNhat(x, p);
+    return 0;
 }
